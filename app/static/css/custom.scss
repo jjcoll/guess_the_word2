@@ -1,0 +1,11 @@
+// custom.scss
+
+// Import Bootstrap source Sass files
+@import "~bootstrap/scss/bootstrap";
+
+// Override Bootstrap variables to change primary color
+$primary: #ff0000; // Change to your desired primary color
+
+// Include Bootstrap mixins and functions
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins";

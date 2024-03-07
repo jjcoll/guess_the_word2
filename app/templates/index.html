@@ -6,5 +6,18 @@ Home Page
 {% endblock %}
 
 {% block content %}
-<h1>This is the home page</h1>
+<div class="container text-center">
+    <h1 class="display-4 mt-5 mb-3">Welcome to Guess the Word</h1>
+    <p>This is a really simple and fun game, where you simply have to try and guess the word, it's pretty
+        straight
+        forward
+        right?</p>
+    <p>You can choose what theme you want to base your word in! And we have a really fun game mode called survival where
+        you have to keep guessing words until you run out of lives!</p>
+    <p>If you want to keep track of your scores and get into the leaderboard, then please consider <a
+            href=" {{ url_for('register_page') }} ">creating
+            an account</a> or <a href="{{ url_for('login_page') }}">logging in</a>!</p>
+    <a class="btn btn-outline-primary me-3" href="{{ url_for('play_page') }}">Play now</a>
+    <!-- <a class="btn btn-outline-primary" href="">Create an account</a> -->
+</div>
 {% endblock %}
