@@ -29,6 +29,7 @@ def check_board(letter, board, word, lives):
         lives -= 1
 
     if word == "".join(board):
+        # session["score"] = session["score"] + 1
         return board, lives, 1
 
     # update session

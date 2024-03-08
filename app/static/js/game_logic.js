@@ -84,6 +84,8 @@ document.querySelectorAll('.letter').forEach(letter => {
     letter.addEventListener('click', e => {
         letter = e.currentTarget.id
 
+        e.currentTarget.classList.replace('letter', 'letter-used')
+
         console.log(letter)
 
         data = {

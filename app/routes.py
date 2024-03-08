@@ -63,6 +63,20 @@ def guess_letter():
     return jsonify(data_return)
 
 
+@app.route("/game-over")
+def game_over():
+
+    outcome = request.args.get("outcome")
+    # validate that the user has won by looking at the session
+
+    # I would like to make sure the user can only access this when
+    # he actually wins or loses
+    if outcome == "win":
+        return render_template("gameover-win.html", lives=session["lives"])
+    else:
+        return render_template("gameover-lose.html", word=session["word"])
+
+
 @app.route("/register", methods=["POST", "GET"])
 def register_page():
 

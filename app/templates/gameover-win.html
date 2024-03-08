@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+<div class='container mt-3'>
+    <h5 class="card-title">Congratulations you have won</h5>
+    <p class="card-text">You still had {{lives}} hearts</p>
+    <p>Would you like to <a href="{{ url_for('play_page') }}">play again</a> </p>
+</div>
+{% endblock %}
