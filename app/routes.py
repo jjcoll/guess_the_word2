@@ -18,14 +18,6 @@ def play_page():
     letters = "abcdefghijklmnopqrstuvwxyz"
     letters_list = list(letters)
 
-    # Keep the previous gamemode by default
-    # print(session.keys())
-    # if "wordsfile" in session.keys():
-    #     start_new_game(session["wordsfile"])
-    # else:
-    #     start_new_game("200words.txt")
-    #     session["wordsfile"] = "200words.txt"
-
     start_new_game("countries.txt")
 
     return render_template(
@@ -67,12 +59,12 @@ def guess_letter():
 def game_over():
 
     outcome = request.args.get("outcome")
-    # validate that the user has won by looking at the session
 
-    # I would like to make sure the user can only access this when
-    # he actually wins or loses
-    if outcome == "win":
+    if outcome == "win" and session["won"]:
         return render_template("gameover-win.html", lives=session["lives"])
+    elif outcome == "win" and not session["won"]:
+        flash("This will not work, please play honestly!", "danger")
+        return redirect(url_for("play_page"))
     else:
         return render_template("gameover-lose.html", word=session["word"])
 
