@@ -4,6 +4,56 @@
 Play
 {% endblock %}
 
-{% block content%}
-<h1 class="display-1">Play a game</h1>
+{% block content %}
+<style>
+    .display-word {
+        letter-spacing: 5px;
+        word-spacing: 10px;
+    }
+
+
+    .letter:hover {
+        cursor: pointer;
+        color: grey;
+    }
+
+    .letter-used {
+        color: #adb5bd;
+    }
+
+    .letter-used:hover {
+        cursor: not-allowed;
+    }
+</style>
+<div class="container">
+    <h2 class='display-word'>{{board}}</h2>
+
+
+
+    <p class='mt-5'>What letter would you like to try?</p>
+
+    <div class="container text-center">
+        <div class="row align-items-start">
+            {% for letter in letters_list %}
+            <div class="col letter" id={{letter}}>
+                {{letter}}
+            </div>
+            {% endfor %}
+
+            <div class="row mt-4 no-gutters lives">
+                <div class='col-auto'>
+                    <p>Lives: </p>
+                </div>
+                {% for _ in range(lives) %}
+                <div class="col-auto p-0">
+                    ❤️
+                </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/game_logic.js') }}"></script>
 {% endblock %}

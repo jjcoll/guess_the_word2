@@ -1,8 +1,9 @@
 from app import app, db
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for, request, session, jsonify
 from app.models import User
 from app.forms import RegisterForm, LoginForm
 from flask_login import login_user
+from app.game_logic import start_new_game, print_board, check_board
 
 
 @app.route("/")
@@ -13,7 +14,53 @@ def home_page():
 
 @app.route("/play")
 def play_page():
-    return render_template("play.html")
+
+    letters = "abcdefghijklmnopqrstuvwxyz"
+    letters_list = list(letters)
+
+    # Keep the previous gamemode by default
+    # print(session.keys())
+    # if "wordsfile" in session.keys():
+    #     start_new_game(session["wordsfile"])
+    # else:
+    #     start_new_game("200words.txt")
+    #     session["wordsfile"] = "200words.txt"
+
+    start_new_game("countries.txt")
+
+    return render_template(
+        "play.html",
+        letters_list=letters_list,
+        board=print_board(session["board"]),
+        lives=session["lives"],
+        wordlist=session["wordsfile"],
+    )
+
+
+@app.route("/guess", methods=["POST"])
+def guess_letter():
+    # Access JSON data
+
+    board = session["board"]
+    word = session["word"]
+    previous_lives = session["lives"]
+    slected_letter = request.json.get("letter")
+
+    board, lives, won = check_board(slected_letter, board, word, previous_lives)
+
+    if lives != previous_lives:
+        update_lives = True
+    else:
+        update_lives = False
+
+    data_return = {
+        "updatedWord": print_board(board),
+        "updateLives": update_lives,
+        "lives": lives,
+        "won": won,
+    }
+
+    return jsonify(data_return)
 
 
 @app.route("/register", methods=["POST", "GET"])

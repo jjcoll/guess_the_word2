@@ -9,6 +9,7 @@ Register
 {% block content %}
 <div class="container mt-5">
     <h2 class="display-3">Create a new account</h2>
+    {{ form.hidden_tag() }}
     {{ render_form(form) }}
 </div>
 {% endblock %}

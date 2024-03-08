@@ -19,7 +19,8 @@ app.secret_key = SECRETE_KEY
 bootstrap = Bootstrap5(app)
 
 # Flask-WTF requires this line
-csrf = CSRFProtect(app)
+csrf = CSRFProtect()
+csrf.init_app(app)
 
 # bycrpt for hashing the passwords
 bcrypt = Bcrypt(app)
