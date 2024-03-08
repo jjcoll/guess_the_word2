@@ -82,13 +82,12 @@ const updateDisplay = (updatedWord, updateLives, lives, won) => {
 
 document.querySelectorAll('.letter').forEach(letter => {
     letter.addEventListener('click', e => {
-        letter = e.currentTarget.id
+        const letter = e.currentTarget.id
 
         e.currentTarget.classList.replace('letter', 'letter-used')
 
-        console.log(letter)
 
-        data = {
+        const data = {
             'letter': letter
         }
 
@@ -98,7 +97,6 @@ document.querySelectorAll('.letter').forEach(letter => {
             "body": JSON.stringify(data)
         }).then(response => response.json())
             .then(data => {
-                console.log(data)
                 updateDisplay(data.updatedWord, data.updateLives, data.lives, data.won)
             })
             .catch(error => {

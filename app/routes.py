@@ -18,7 +18,9 @@ def play_page():
     letters = "abcdefghijklmnopqrstuvwxyz"
     letters_list = list(letters)
 
-    start_new_game("countries.txt")
+    start_new_game("animals.txt")
+
+    print(session["survival"])
 
     return render_template(
         "play.html",
@@ -26,6 +28,8 @@ def play_page():
         board=print_board(session["board"]),
         lives=session["lives"],
         wordlist=session["wordsfile"],
+        survival=session["survival"],
+        score=session["score"],
     )
 
 
@@ -37,6 +41,8 @@ def guess_letter():
     word = session["word"]
     previous_lives = session["lives"]
     slected_letter = request.json.get("letter")
+
+    session["started"] = True
 
     board, lives, won = check_board(slected_letter, board, word, previous_lives)
 
@@ -59,14 +65,50 @@ def guess_letter():
 def game_over():
 
     outcome = request.args.get("outcome")
+    print(session["won"])
 
     if outcome == "win" and session["won"]:
-        return render_template("gameover-win.html", lives=session["lives"])
+        return render_template(
+            "gameover-win.html",
+            lives=session["lives"],
+            score=session["score"],
+            survival=session["survival"],
+        )
     elif outcome == "win" and not session["won"]:
         flash("This will not work, please play honestly!", "danger")
         return redirect(url_for("play_page"))
     else:
-        return render_template("gameover-lose.html", word=session["word"])
+        # reset score and survival because you lost
+        session["score"] = 0
+        session["survival"] = False
+        return render_template(
+            "gameover-lose.html",
+            word=session["word"],
+            score=session["score"],
+            survival=session["score"],
+        )
+
+
+@app.route("/submit")
+def submit_page():
+    return render_template("register.html")
+
+
+@app.route("/trigger-survival", methods=["POST"])
+def trigger_survival():
+    survival = request.json.get("survival")
+
+    if not session["started"]:
+        session["survival"] = survival
+
+    # return redirect(url_for("play_page"))
+    return jsonify(
+        {
+            "survival": session["survival"],
+            "started": session["started"],
+            "score": session["score"],
+        }
+    )
 
 
 @app.route("/register", methods=["POST", "GET"])

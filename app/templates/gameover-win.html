@@ -5,8 +5,14 @@
 
 {% block content %}
 <div class='container mt-3'>
-    <h5 class="card-title">Congratulations you have won</h5>
-    <p class="card-text">You still had {{lives}} hearts</p>
+    <h5 class="card-title">Congratulations you have guessed the word</h5>
+    {% if survival %}
+    <p class="card-text">Your current score is {{ score }}, would you like to <a href="{{url_for('play_page')}}">
+            continue</a> or
+        <a href="{{ url_for('submit_page') }}">submit score</a>
+    </p>
+    {% else %}
     <p>Would you like to <a href="{{ url_for('play_page') }}">play again</a> </p>
+    {% endif %}
 </div>
 {% endblock %}

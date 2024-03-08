@@ -24,11 +24,29 @@ Play
     .letter-used:hover {
         cursor: not-allowed;
     }
+
+    #SurvivalModeExplain:hover {
+        cursor: pointer;
+    }
 </style>
-<div class="container">
+<div class="container game-container">
+
+    <p>Change the word list: </p>
+    <p>Selected word list: {{wordlist}}</p>
+
+    <div class="form-check form-switch">
+        <label class="form-check-label"><a class="link" id="SurvivalModeExplain">Survival Mode</a></label>
+        <input class="form-check-input trigger-survival" type="checkbox" id="SurvivalModeSwitch" {% if survival %}
+            checked {% endif %}>
+    </div>
+
+    <p class="score {% if survival %} '' {% else %} d-none {% endif %}">Score: {{ score }}</p>
+
+
+
+
+
     <h2 class='display-word'>{{board}}</h2>
-
-
 
     <p class='mt-5'>What letter would you like to try?</p>
 
@@ -56,4 +74,5 @@ Play
     </div>
 </div>
 <script src="{{ url_for('static', filename='js/game_logic.js') }}"></script>
+<script src="{{ url_for('static', filename='js/survival.js') }}"></script>
 {% endblock %}

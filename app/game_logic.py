@@ -29,14 +29,16 @@ def check_board(letter, board, word, lives):
         lives -= 1
 
     if word == "".join(board):
-        # session["score"] = session["score"] + 1
-        return board, lives, 1
+        if session["survival"]:
+            session["score"] = session["score"] + 1
+        session["won"] = 1
+        return board, lives, session["won"]
 
     # update session
     session["board"] = board
     session["lives"] = lives
 
-    return board, lives, 0
+    return board, lives, session["won"]
 
 
 def start_new_game(wordfile):
@@ -53,6 +55,12 @@ def start_new_game(wordfile):
         else:
             board.append(" ")
 
+    if "survival" not in session.keys() or session["score"] == 0:
+        session["survival"] = False
+
+    if not session["survival"]:
+        session["score"] = 0
+
     # store in session so they can be accessed outside the scope of this function
     # and like this we create a new board and word each session
     session["word"] = word
@@ -60,4 +68,5 @@ def start_new_game(wordfile):
     session["lives"] = lives
     session["won"] = 0
     session["wordsfile"] = wordfile
+    session["started"] = False
     return word, board, lives

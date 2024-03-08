@@ -7,6 +7,9 @@
 <div class='container mt-3'>
     <h5 class="card-title">The correct word was <u>{{ word }}</u></h5>
     <p class="card-text">You ran out of lifes, do not worry though you can always play again</p>
+    {% if survival %}
+    <p>Your score was {{score}}</p>
+    {% endif %}
 
     <p>Would you like to <a href="{{ url_for('play_page') }}">play again</a> </p>
 </div>
