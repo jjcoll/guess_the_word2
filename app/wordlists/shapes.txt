@@ -1,0 +1,47 @@
+Circle
+Square
+Triangle
+Rectangle
+Oval
+Diamond
+Pentagon
+Hexagon
+Octagon
+Sphere
+Cube
+Cylinder
+Cone
+Pyramid
+Prism
+Rhombus
+Trapezoid
+Parallelogram
+Crescent
+Heart
+Star
+Arrow
+Cross
+Crescent
+Arrow
+Crescent
+Plus
+Minus
+Equal
+Greater than
+Less than
+Question mark
+Exclamation mark
+Ampersand
+Percent sign
+Dollar sign
+Pound sign
+Euro sign
+Yen sign
+Infinity
+Pi
+Square root
+Cube root
+Greater than or equal to
+Less than or equal to
+Parallel lines
+Perpendicular lines

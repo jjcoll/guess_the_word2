@@ -1,0 +1,29 @@
+Action
+Comedy
+Drama
+Romance
+Horror
+Thriller
+Science fiction
+Fantasy
+Mystery
+Crime
+Adventure
+Animation
+Musical
+Western
+War
+Documentary
+Biography
+Historical
+Family
+Superhero
+Spy
+Disaster
+Sports
+Martial arts
+Romance comedy
+Supernatural
+Teen
+Coming-of-age
+Independent

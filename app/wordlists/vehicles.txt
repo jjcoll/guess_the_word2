@@ -1,0 +1,46 @@
+Car
+Truck
+Motorcycle
+Bicycle
+Bus
+Train
+Boat
+Plane
+Helicopter
+Scooter
+Jet
+Van
+Taxi
+Ambulance
+Firetruck
+Police car
+SUV
+Limousine
+RV
+Tractor
+Bulldozer
+Crane
+Forklift
+Roller
+Segway
+Skateboard
+Snowmobile
+Golf cart
+Hot air balloon
+Submarine
+Yacht
+Kayak
+Canoe
+Jet ski
+Hang glider
+Paraglider
+Glider
+Zeppelin
+Biplane
+Spaceship
+Rocket
+Hovercraft
+Tram
+Monorail
+Cable car
+Rickshaw

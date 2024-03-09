@@ -1,0 +1,25 @@
+Water
+Tea
+Coffee
+Milk
+Juice
+Soda
+Lemonade
+Iced tea
+Iced coffee
+Hot chocolate
+Beer
+Wine
+Whiskey
+Rum
+Vodka
+Gin
+Tequila
+Champagne
+Cider
+Ale
+Stout
+Porter
+Seltzer
+Tonic
+Ginger

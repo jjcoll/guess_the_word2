@@ -1,0 +1,46 @@
+Action
+Adventure
+Role-playing
+Strategy
+Simulation
+Puzzle
+Sports
+Racing
+Fighting
+Survival
+Sandbox
+Platform
+Stealth
+Horror
+Open-world
+First-person shooter
+Third-person shooter
+Massively multiplayer online (MMO)
+Real-time strategy (RTS)
+Turn-based strategy (TBS)
+Tactical role-playing game (TRPG)
+Metroidvania
+Roguelike
+Battle royale
+Card game
+Board game
+Educational game
+Trivia game
+Party game
+Music/rhythm game
+Puzzle-adventure
+Interactive fiction
+Visual novel
+Point-and-click
+Tower defense
+City-building
+God game
+Life simulation
+Dating sim
+Cooking game
+Fishing game
+Farming simulator
+Flight simulator
+Racing simulator
+Virtual reality (VR)
+Augmented reality (AR)

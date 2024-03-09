@@ -1,0 +1,46 @@
+Drama
+Comedy
+Thriller
+Crime
+Mystery
+Horror
+Science fiction
+Fantasy
+Action
+Adventure
+Romance
+Reality TV
+Documentary
+Historical drama
+Supernatural
+Sitcom
+Animation
+Game show
+Talk show
+Variety show
+News program
+Cooking show
+Travel show
+Educational show
+Musical
+Soap opera
+Courtroom drama
+Medical drama
+Police procedural
+Legal drama
+Political drama
+Sitcom
+Western
+Family drama
+Spy thriller
+Teen drama
+Period drama
+Fantasy drama
+Romantic comedy
+Science fiction drama
+Anthology series
+Mockumentary
+Space opera
+Cyberpunk
+Slice of life
+Dystopian

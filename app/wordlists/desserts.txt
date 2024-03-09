@@ -1,0 +1,47 @@
+Cake
+Pie
+Ice cream
+Brownie
+Cookie
+Cupcake
+Donut
+Pudding
+Cheesecake
+Tiramisu
+Popsicle
+Gelato
+Sorbet
+Mousse
+Trifle
+Éclair
+Soufflé
+Baklava
+Cannoli
+Flan
+Crème brûlée
+Macaron
+Tart
+Cobbler
+Parfait
+Shortcake
+Churro
+Fudge
+Marshmallow
+Caramel
+Brittle
+Toffee
+Honeycomb
+Gelatin
+Sherbet
+Frozen yogurt
+Crepe
+Waffle
+Pancake
+French toast
+Danish
+Croissant
+Strudel
+Scone
+Muffin
+Bagel
+Pretzel

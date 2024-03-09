@@ -1,0 +1,48 @@
+Mickey Mouse
+Donald Duck
+Bugs Bunny
+Daffy Duck
+SpongeBob SquarePants
+Homer Simpson
+Bart Simpson
+Marge Simpson
+Lisa Simpson
+Maggie Simpson
+Fred Flintstone
+Wilma Flintstone
+Barney Rubble
+Betty Rubble
+George Jetson
+Jane Jetson
+Tom
+Jerry
+Popeye
+Olive Oyl
+Bluto
+Felix the Cat
+Garfield
+Snoopy
+Charlie Brown
+Linus
+Lucy
+Woodstock
+Scooby-Doo
+Shaggy
+Velma
+Daphne
+Fred Jones
+Barney Rubble
+Pebbles Flintstone
+Bamm-Bamm Rubble
+Astro
+Elroy Jetson
+Judy Jetson
+Rosie the Robot
+Goofy
+Minnie Mouse
+Pluto
+Daisy Duck
+Huey
+Dewey
+Louie
+Scrooge McDuck

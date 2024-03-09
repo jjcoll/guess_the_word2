@@ -1,0 +1,47 @@
+Rain
+Snow
+Hail
+Sleet
+Fog
+Mist
+Drizzle
+Shower
+Blizzard
+Thunderstorm
+Lightning
+Tornado
+Hurricane
+Typhoon
+Cyclone
+Monsoon
+Heatwave
+Cold wave
+Drought
+Flood
+Avalanche
+Landslide
+Mudslide
+Tsunami
+Whirlwind
+Waterspout
+Dust storm
+Sandstorm
+Rainbow
+Dew
+Frost
+Freeze
+Ice storm
+Haze
+Smog
+Pollution
+Sunrise
+Sunset
+Wind
+Breeze
+Gale
+Tidal wave
+Heat lightning
+Evaporation
+Condensation
+Precipitation
+Atmosphere

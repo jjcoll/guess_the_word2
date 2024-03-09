@@ -1,0 +1,50 @@
+Hammer
+Screwdriver
+Wrench
+Pliers
+Saw
+Drill
+Chisel
+Axe
+Sander
+Grinder
+Clamp
+Vise
+Ruler
+Level
+Tape measure
+Stapler
+Nail gun
+Wire cutter
+Soldering iron
+Trowel
+Spade
+Shovel
+Rake
+Hoe
+Pruner
+Ladder
+Jack
+Winch
+Crowbar
+Mallet
+Tongs
+Spatula
+Whisk
+Ladle
+Grater
+Peeler
+Zester
+Colander
+Strainer
+Funnel
+Bottle opener
+Corkscrew
+Can opener
+Pencil
+Eraser
+Sharpener
+Glue gun
+Paintbrush
+Roller
+Sprayer
