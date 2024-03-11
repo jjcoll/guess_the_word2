@@ -49,11 +49,12 @@ def start_new_game(wordfile):
 
     # allow words with spaces
     board = []
+    letters = "abcdefghijklmnopqrstuvwxyz"
     for letter in word:
-        if letter != " ":
-            board.append("_")
+        if letter not in letters:
+            board.append(letter)
         else:
-            board.append(" ")
+            board.append("_")
 
     if "survival" not in session.keys() or session["score"] == 0:
         session["survival"] = False
