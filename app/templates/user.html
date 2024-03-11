@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ current_user.username }}'s Page!
+{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+    <p>Welcome {{current_user.username}}</p>
+    <p>Click <a href="{{url_for('logout')}}">here</a> to log out</p>
+</div>
+{% endblock %}

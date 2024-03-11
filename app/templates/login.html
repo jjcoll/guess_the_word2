@@ -6,6 +6,8 @@ Login
 {% endblock %}
 
 {% block content %}
-{{ form.hidden_tag() }}
-{{ render_form(form) }}
+<div class="container mt-5">
+    {{ form.hidden_tag() }}
+    {{ render_form(form) }}
+</div>
 {% endblock %}

@@ -107,6 +107,8 @@ li span {
 /* blur the page when search box is selected */
 .blur-page {
     filter: blur(2px);
+    /* prevent clicking on page */
+    pointer-events: none;
     z-index: -1;
 }
 

@@ -2,7 +2,7 @@ from app import app, db
 from flask import render_template, flash, redirect, url_for, request, session, jsonify
 from app.models import User
 from app.forms import RegisterForm, LoginForm
-from flask_login import login_user
+from flask_login import login_user, login_required, logout_user
 from app.game_logic import start_new_game, print_board, check_board
 from app.wordlists import wordlist_dict
 
@@ -153,6 +153,7 @@ def login_page():
 
                 # login user
                 login_user(user_to_check)
+                print("Logged In")
 
                 next = request.args.get("next")
 
@@ -189,3 +190,15 @@ def post_wordlists():
     }
 
     return jsonify(data_return)
+
+
+@app.route("/user")
+@login_required
+def user_page():
+    return render_template("user.html")
+
+
+@app.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for("home_page"))
