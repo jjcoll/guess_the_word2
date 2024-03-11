@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Leaderboard
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Score</th>
+                <th scope="col">User</th>
+                <th scope="col">Wordlist</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for game in games %}
+            <tr>
+                <th scope="row">{{game.id}}</th>
+                <td>{{game.score}}</td>
+                <td>{{game.username}}</td>
+                <td>{{game.wordlist}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -14,6 +14,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(30), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password_hash = db.Column(db.String(120), unique=True, nullable=False)
+    games = db.relationship("Game", backref="game", lazy=True)
 
     @property
     def password(self):
@@ -25,3 +26,10 @@ class User(db.Model, UserMixin):
 
     def check_password(self, password_to_check):
         return check_password_hash(self.password_hash, password_to_check)
+
+
+class Game(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(30), db.ForeignKey("user.username"), nullable=False)
+    wordlist = db.Column(db.String(120), nullable=False)
+    score = db.Column(db.Integer, nullable=False)

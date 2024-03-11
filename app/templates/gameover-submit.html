@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+<div class='container mt-3'>
+    {% if current_user.is_authenticated %}
+    <h5 class="card-title">Dear {{current_user.username}} your game has been saved!</h5>
+    <p class="card-text">Your total score was {{ score }}, would you like to<a href="{{ url_for('play_page') }}">
+            play again</a>?</p>
+    <p>Do you want to check if your score is on the <a href="{{ url_for('leaderboard_page')}}">leaderboard</a></p>
+    {% else %}
+
+    <p class="card-text">Your total score was {{ score }}, would you like to<a href="{{ url_for('play_page') }}">
+            play again</a>?</p>
+    <p>Try entering the <a href="{{url_for('leaderboard_page')}}">leaderboard</a> by <a
+            href="{{url_for('login_page')}}">logging
+            in</a> or by <a href="{{url_for('register_page')}}">creating an account</a> for your score to be saved.</p>
+    {% endif %}
+
+
+</div>
+{% endblock %}

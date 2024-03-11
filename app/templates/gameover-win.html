@@ -9,7 +9,7 @@
     {% if survival %}
     <p class="card-text">Your current score is {{ score }}, would you like to <a href="{{url_for('play_page')}}">
             continue</a> or
-        <a href="{{ url_for('submit_page') }}">submit score</a>
+        <a href="/game-over?outcome=submit">submit score</a>
     </p>
     {% else %}
     <p>Would you like to <a href="{{ url_for('play_page') }}">play again</a> </p>

@@ -1,8 +1,8 @@
 from app import app, db
 from flask import render_template, flash, redirect, url_for, request, session, jsonify
-from app.models import User
+from app.models import User, Game
 from app.forms import RegisterForm, LoginForm
-from flask_login import login_user, login_required, logout_user
+from flask_login import login_user, login_required, logout_user, current_user
 from app.game_logic import start_new_game, print_board, check_board
 from app.wordlists import wordlist_dict
 
@@ -72,7 +72,7 @@ def guess_letter():
 def game_over():
 
     outcome = request.args.get("outcome")
-    print(session["won"])
+    # print(session["won"])
 
     if outcome == "win" and session["won"]:
         return render_template(
@@ -84,7 +84,37 @@ def game_over():
     elif outcome == "win" and not session["won"]:
         flash("This will not work, please play honestly!", "danger")
         return redirect(url_for("play_page"))
+    elif outcome == "submit":
+
+        # TODO: REFACTOR THIS AS THERE IS DUPLICATE CODE
+
+        # save game
+        if current_user.is_authenticated:
+            game_to_add = Game(
+                username=current_user.username,
+                wordlist=session["wordlist"],
+                score=session["score"],
+            )
+            db.session.add(game_to_add)
+            db.session.commit()
+
+        # reset for new game
+        previous_score = session["score"]
+        session["score"] = 0
+        session["survival"] = False
+        return render_template("gameover-submit.html", score=previous_score)
     else:
+        # save game if survival
+        if session["survival"]:
+            if current_user.is_authenticated:
+                game_to_add = Game(
+                    username=current_user.username,
+                    wordlist=session["wordlist"],
+                    score=session["score"],
+                )
+                db.session.add(game_to_add)
+                db.session.commit()
+
         # reset score and survival because you lost
         session["score"] = 0
         session["survival"] = False
@@ -96,9 +126,9 @@ def game_over():
         )
 
 
-@app.route("/submit")
-def submit_page():
-    return render_template("register.html")
+# @app.route("/submit")
+# def submit_page():
+#     return render_template("register.html")
 
 
 @app.route("/trigger-survival", methods=["POST"])
@@ -116,6 +146,13 @@ def trigger_survival():
             "score": session["score"],
         }
     )
+
+
+@app.route("/leaderboard")
+def leaderboard_page():
+    games = Game.query.all()
+
+    return render_template("leaderboard.html", games=games)
 
 
 @app.route("/register", methods=["POST", "GET"])
@@ -153,11 +190,10 @@ def login_page():
 
                 # login user
                 login_user(user_to_check)
-                print("Logged In")
 
                 next = request.args.get("next")
 
-                return redirect(next or url_for("home_page"))
+                return redirect(next or url_for("play_page"))
 
             else:
                 # password is not correct
