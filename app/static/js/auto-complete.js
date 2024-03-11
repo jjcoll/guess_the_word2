@@ -3,6 +3,7 @@ const resultBox = document.querySelector('.result-box')
 const searchBox = document.querySelector('.search-box')
 const inputBox = document.querySelector('#search-wordlist')
 const searchBtn = document.querySelector('.btn-wordlist-search')
+const gameContainer = document.querySelector('.game-container')
 
 let wordLists = []
 
@@ -10,6 +11,8 @@ let wordLists = []
 // when click on change wordlist button
 cwButton.addEventListener('click', (e) => {
     searchBox.classList.remove('d-none')
+    gameContainer.classList.add('blur-page')
+
     // put focus on input box
     inputBox.focus()
 
@@ -31,6 +34,7 @@ searchBtn.addEventListener('click', (e) => {
     resultBox.innerHTML = ''
     inputBox.value = ''
     searchBox.classList.add('d-none')
+    gameContainer.classList.remove('blur-page')
 })
 
 inputBox.onkeyup = () => {
@@ -69,6 +73,8 @@ const selectInput = (list) => {
 
     // hide form
     searchBox.classList.add('d-none')
+    // remove blur
+    gameContainer.classList.remove('blur-page')
     fetch('/post-wordlist', {
 
         "method": "POST",

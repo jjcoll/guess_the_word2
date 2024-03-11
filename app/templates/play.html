@@ -47,21 +47,6 @@ Play
             <i class="wordlist-icon fa-solid fa-file-word"></i>
         </div>
 
-        <div class="search-box d-none">
-            <div class="row_">
-                <input type="text" id="search-wordlist" placeholder="Search wordlist" autocomplete="off">
-                <button class="btn-wordlist-search"><i class="search-icon fa-solid fa-xmark"></i></button>
-            </div>
-
-            <div class="result-box">
-                <!-- <ul>
-                <li>JavaScript <span>featured</span></li>
-                <li>Cock</li>
-            </ul> -->
-            </div>
-
-        </div>
-
     </div>
 
     <p>Selected word list: <span class="show-wordlist">{{wordlist}}</span></p>
@@ -105,7 +90,24 @@ Play
             </div>
         </div>
     </div>
+
+
 </div>
+
+<div class="search-box d-none">
+    <div class="row_">
+        <input type="text" id="search-wordlist" placeholder="Search wordlist" autocomplete="off">
+        <button class="btn-wordlist-search"><i class="search-icon fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div class="result-box">
+        <!-- <ul>
+                <li>JavaScript <span>featured</span></li>
+                <li>Cock</li>
+            </ul> -->
+    </div>
+</div>
+
 <script src="{{ url_for('static', filename='js/game_logic.js') }}"></script>
 <script src="{{ url_for('static', filename='js/survival.js') }}"></script>
 <script src="{{ url_for('static', filename='js/auto-complete.js') }}"></script>

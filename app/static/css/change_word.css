@@ -104,6 +104,12 @@ li span {
     margin-bottom: 2px;
 }
 
+/* blur the page when search box is selected */
+.blur-page {
+    filter: blur(2px);
+    z-index: -1;
+}
+
 /* CSS styles for screens 600px and wider */
 @media only screen and (max-width: 600px) {
 
