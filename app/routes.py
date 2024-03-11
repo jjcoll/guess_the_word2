@@ -4,6 +4,7 @@ from app.models import User
 from app.forms import RegisterForm, LoginForm
 from flask_login import login_user
 from app.game_logic import start_new_game, print_board, check_board
+from app.wordlists import wordlist_dict
 
 
 @app.route("/")
@@ -18,16 +19,22 @@ def play_page():
     letters = "abcdefghijklmnopqrstuvwxyz"
     letters_list = list(letters)
 
-    start_new_game("animals.txt")
+    if "wordlist" not in session.keys():
+        start_new_game("animals.txt")
+    else:
+        start_new_game(session["wordlist"])
 
-    print(session["survival"])
+    name = session["wordlist"][:-4].replace("_", " ")
+    # print(wordlist_dict)
+
+    # print(session["survival"])
 
     return render_template(
         "play.html",
         letters_list=letters_list,
         board=print_board(session["board"]),
         lives=session["lives"],
-        wordlist=session["wordsfile"],
+        wordlist=name,
         survival=session["survival"],
         score=session["score"],
     )
@@ -159,3 +166,26 @@ def login_page():
             flash("User does not exist", "danger")
 
     return render_template("login.html", form=form)
+
+
+@app.route("/get-wordlists", methods=["GET"])
+def get_wordlists():
+    # get the wordlist dict from file
+    return jsonify(wordlist_dict)
+
+
+@app.route("/post-wordlist", methods=["POST"])
+def post_wordlists():
+    # get the wordlist dict from file
+    changed_wordlist = request.json.get("wordlist")
+
+    start_new_game(changed_wordlist)
+
+    data_return = {
+        "updatedWord": print_board(session["board"]),
+        "updateLives": False,
+        "lives": session["lives"],
+        "won": session["won"],
+    }
+
+    return jsonify(data_return)

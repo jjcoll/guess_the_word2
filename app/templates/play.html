@@ -31,13 +31,9 @@ Play
 </style>
 <div class="container game-container">
 
-    <p>Change the word list: </p>
 
-    <div class="row">
-        <div class="col-auto">
-            <label for="exampleSelect1" class="form-label">Change the wordlist: </label>
-        </div>
-        <div class="col-auto">
+    <div class="row mt-3">
+        <!-- <div class="col-auto">
             <select class="form-select" id="exampleSelect1">
                 <option value="animals.txt">animals</option>
                 <option value="countries.txt">countries</option>
@@ -45,10 +41,30 @@ Play
                 <option value="sports.txt">sport</option>
                 <option value="space.txt">space</option>
             </select>
+        </div> -->
+        <div class="cw-container">
+            <p>Change Wordlist </p>
+            <i class="wordlist-icon fa-solid fa-file-word"></i>
         </div>
+
+        <div class="search-box d-none">
+            <div class="row_">
+                <input type="text" id="search-wordlist" placeholder="Search wordlist" autocomplete="off">
+                <button class="btn-wordlist-search"><i class="search-icon fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="result-box">
+                <!-- <ul>
+                <li>JavaScript <span>featured</span></li>
+                <li>Cock</li>
+            </ul> -->
+            </div>
+
+        </div>
+
     </div>
 
-    <p>Selected word list: {{wordlist}}</p>
+    <p>Selected word list: <span class="show-wordlist">{{wordlist}}</span></p>
 
 
     <div class="form-check form-switch">
@@ -92,4 +108,5 @@ Play
 </div>
 <script src="{{ url_for('static', filename='js/game_logic.js') }}"></script>
 <script src="{{ url_for('static', filename='js/survival.js') }}"></script>
+<script src="{{ url_for('static', filename='js/auto-complete.js') }}"></script>
 {% endblock %}

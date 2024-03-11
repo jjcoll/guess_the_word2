@@ -65,8 +65,8 @@ def start_new_game(wordfile):
     # and like this we create a new board and word each session
     session["word"] = word
     session["board"] = board
+    session["wordlist"] = wordfile
     session["lives"] = lives
     session["won"] = 0
-    session["wordsfile"] = wordfile
     session["started"] = False
     return word, board, lives
