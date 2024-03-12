@@ -177,7 +177,10 @@ def register_page():
 
         login_user(user_to_add)
 
-        flash(f"User {user_to_add.username} logged in successfuly", "success")
+        flash(
+            f"User {user_to_add.username} registered and logged in successfuly",
+            "success",
+        )
         return redirect(url_for("play_page"))
 
     return render_template("register.html", form=form)
