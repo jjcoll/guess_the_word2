@@ -4,27 +4,55 @@
 Leaderboard
 {% endblock %}
 
+{% block style%}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/leaderboard.css') }}">
+{% endblock %}
+
 {% block content %}
 <div class="container">
-    <table class="table">
-        <thead>
+
+    <div class="lb-filters_container">
+        <ul class="lb-filters mt-3">
+            <li>Filter :</li>
+            <li><i class="fa-solid fa-globe"></i> Global</li>
+            <li><i class="fa-solid fa-calendar-day"></i> Daily</li>
+            <li><i class="fa-solid fa-user"></i> User</li>
+        </ul>
+
+        <ul class="lb-filters mt-3">
+            <li>Order :</li>
+            <li><i class="fa-solid fa-star"></i> Score</li>
+            <li><i class="fa-solid fa-clock"></i> Recent</li>
+            <li><i class="fa-solid fa-file-word"></i> Wordlist</li>
+        </ul>
+    </div>
+
+
+    <table class="table table-hover lb-table">
+        <thead class="table-primary">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Score</th>
                 <th scope="col">User</th>
                 <th scope="col">Wordlist</th>
+                <th scope="col">Date</th>
             </tr>
         </thead>
         <tbody>
-            {% for game in games %}
+            {% for i in range(1, games|length) %}
             <tr>
-                <th scope="row">{{game.id}}</th>
-                <td>{{game.score}}</td>
-                <td>{{game.username}}</td>
-                <td>{{game.wordlist}}</td>
+                <th scope="row">{{i}}</th>
+                <td>{{games[i].score}}</td>
+                <td>{{games[i].username}}</td>
+                <td>{{games[i].wordlist}}</td>
+                <td>{{games[i].date}}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    {% if games == [] %}
+    <p class="text-center">No values available</p>
+    {% endif %}
+
 </div>
 {% endblock %}

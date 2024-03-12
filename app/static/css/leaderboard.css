@@ -1,0 +1,26 @@
+.lb-table {
+    border: 1px solid #AAA;
+}
+
+.lb-table th {
+    font-weight: 400;
+}
+
+.lb-filters_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.lb-filters {
+    display: flex;
+    gap: 20px;
+}
+
+.lb-filters li {
+    list-style: none;
+}
+
+.lb-filters *:not(:first-child):hover {
+    cursor: pointer;
+    color: #78c2ad;
+}

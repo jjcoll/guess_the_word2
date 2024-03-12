@@ -82,6 +82,10 @@ const updateDisplay = (updatedWord, updateLives, lives, won) => {
 
 document.querySelectorAll('.letter').forEach(letter => {
     letter.addEventListener('click', e => {
+
+        // disable change wordlist
+        cwButton.classList.add('d-none')
+
         const letter = e.currentTarget.id
 
         e.currentTarget.classList.replace('letter', 'letter-used')

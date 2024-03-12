@@ -7,6 +7,8 @@
 {% block content %}
 <div class="container mt-3">
     <p>Welcome {{current_user.username}}</p>
+    <p>You joined us on {{current_user.date}}</p>
+    <p>You have played <b>{{current_user.games|length}}</b> games</p>
     <p>Click <a href="{{url_for('logout')}}">here</a> to log out</p>
 </div>
 {% endblock %}

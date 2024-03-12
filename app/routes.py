@@ -5,6 +5,7 @@ from app.forms import RegisterForm, LoginForm
 from flask_login import login_user, login_required, logout_user, current_user
 from app.game_logic import start_new_game, print_board, check_board
 from app.wordlists import wordlist_dict
+from datetime import datetime
 
 
 @app.route("/")
@@ -94,6 +95,7 @@ def game_over():
                 username=current_user.username,
                 wordlist=session["wordlist"],
                 score=session["score"],
+                # date=datetime.now()
             )
             db.session.add(game_to_add)
             db.session.commit()
@@ -111,6 +113,7 @@ def game_over():
                     username=current_user.username,
                     wordlist=session["wordlist"],
                     score=session["score"],
+                    # date=datetime.now(),
                 )
                 db.session.add(game_to_add)
                 db.session.commit()
@@ -150,7 +153,9 @@ def trigger_survival():
 
 @app.route("/leaderboard")
 def leaderboard_page():
-    games = Game.query.all()
+
+    # order games by descending order
+    games = Game.query.order_by(Game.score.desc()).all()
 
     return render_template("leaderboard.html", games=games)
 

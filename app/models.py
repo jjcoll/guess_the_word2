@@ -2,6 +2,7 @@ from app import db
 from flask_bcrypt import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from app import login_manager
+import datetime
 
 
 @login_manager.user_loader
@@ -15,6 +16,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password_hash = db.Column(db.String(120), unique=True, nullable=False)
     games = db.relationship("Game", backref="game", lazy=True)
+    date = db.Column(db.DateTime, default=lambda: datetime.datetime.now())
 
     @property
     def password(self):
@@ -33,3 +35,6 @@ class Game(db.Model):
     username = db.Column(db.String(30), db.ForeignKey("user.username"), nullable=False)
     wordlist = db.Column(db.String(120), nullable=False)
     score = db.Column(db.Integer, nullable=False)
+    # date = db.Column(db.DateTime, default=datetime.datetime.now)
+    # avoid using time relative to server creation
+    date = db.Column(db.DateTime, default=lambda: datetime.datetime.now())

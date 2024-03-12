@@ -42,10 +42,24 @@ Play
                 <option value="space.txt">space</option>
             </select>
         </div> -->
+
+        <!-- TODO: "Refactor this" -->
+        {% if score %}
+
+        <div class="cw-container d-none">
+            <p>Change Wordlist </p>
+            <i class="wordlist-icon fa-solid fa-file-word"></i>
+        </div>
+
+        {% else %}
+
         <div class="cw-container">
             <p>Change Wordlist </p>
             <i class="wordlist-icon fa-solid fa-file-word"></i>
         </div>
+
+        {% endif %}
+
 
     </div>
 
