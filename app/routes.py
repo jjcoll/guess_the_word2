@@ -175,6 +175,11 @@ def register_page():
         db.session.add(user_to_add)
         db.session.commit()
 
+        login_user(user_to_add)
+
+        flash(f"User {user_to_add.username} logged in successfuly", "success")
+        return redirect(url_for("play_page"))
+
     return render_template("register.html", form=form)
 
 
